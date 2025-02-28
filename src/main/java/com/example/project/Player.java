@@ -20,19 +20,23 @@ public class Player{
         hand.add(c);
     }
 
-    public String playHand(ArrayList<Card> communityCards){      
+    public String playHand(ArrayList<Card> communityCards){     
+         
         return "Nothing";
     }
 
-<<<<<<< HEAD
-    public void sortAllCards(){} 
-=======
-    public void SortCards(){
-        for (int i = 1; i < hand.size(); i++) {
-            
+    public void sortAllCards(){
+        for (int i = 0; i < allCards.size(); i++) {
+            Card val = allCards.get(i);
+            int idx = i;
+            while (idx > 0 && allCards.get(idx-1).getRank().compareTo(val.getRank()) > 0) {
+                idx--;
+            }
+            Card temp = allCards.get(idx);
+            allCards.set(idx, val);
+            allCards.set(idx+1, temp);
         }
     } 
->>>>>>> 03ee037 (merge stuff idk)
 
     public ArrayList<Integer> findRankingFrequency(){
         ArrayList<Integer> freq = new ArrayList<>(13);
